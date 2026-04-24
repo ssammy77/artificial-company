@@ -27,7 +27,7 @@ export function WhySection() {
       <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
           <div className="font-sans text-xs font-bold tracking-widest uppercase text-blue-300 mb-3">
-            Why It Matters
+            Our pitch
           </div>
           <h2 className="text-3xl md:text-4xl leading-tight tracking-tight mb-5 text-white">
             {"You don't need a developer."}
@@ -36,10 +36,10 @@ export function WhySection() {
             <em className="not-italic text-blue-300">clarity.</em>
           </h2>
           <p className="text-lg text-slate-400 max-w-[640px] mb-6 leading-relaxed">
-            {"Business owners aren't stuck because AI doesn't work. They're stuck because nobody has looked at their specific situation and said: \"Here's your problem. Here's the tool. Here's where you start.\""}
+            {"Most small business owners aren't losing to bad products or poor service — they're losing to the clock. Every hour spent vetting unqualified leads, chasing unanswered follow-ups, or hand-building estimates is an hour not spent on the work that actually grows the business. AI doesn't replace what you're good at. It handles the parts that slow you down — faster, more consistently, and around the clock."}
           </p>
-          <p className="text-base text-slate-400 max-w-[640px] leading-relaxed">
-            {"That's all we do. No courses. No newsletters. No developer hours. We spend 45 minutes learning how your business actually works — then hand you a clear, actionable report with exactly what to change and what to use."}
+          <p className="text-lg text-slate-400 max-w-[640px] leading-relaxed">
+            {"That's exactly what we help you find. No jargon, no six-figure software overhaul, no guessing. We spend time learning how your business actually operates — then hand you a clear, specific plan showing where AI fits, what tools to use, and where to start."}
           </p>
         </div>
         <div className="flex flex-col gap-4">
