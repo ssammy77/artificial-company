@@ -23,15 +23,17 @@ export function Hero() {
         <div className="inline-block font-sans text-xs font-bold tracking-widest uppercase text-primary bg-accent px-4 py-1.5 rounded-full mb-7">
           AI Tools Assessment for Small Business
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight mb-6 text-foreground text-balance">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight mb-6 text-white text-balance">
           You've heard all about AI.
           <br />
           {"Your competition is using it "}
           {"We'll help you catch up."}
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-[640px] mx-auto mb-10 leading-relaxed text-pretty">
-          {"You're drowning in tools and have no idea which ones solve your specific problems. We look at your calendar, your inbox, and your workflows — and say: \"This tool. This process. This is where you start.\""}
-        </p>
+        <div className="bg-black/40 backdrop-blur-sm rounded-xl px-6 py-5 max-w-[640px] mx-auto mb-10">
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed text-pretty">
+            {"You're drowning in tools and have no idea which ones solve your specific problems. We look at your calendar, your inbox, and your workflows — and say: \"This tool. This process. This is where you start.\""}
+          </p>
+        </div>
         <div className="flex gap-4 justify-center flex-wrap">
           <Link
             href="#pricing"
