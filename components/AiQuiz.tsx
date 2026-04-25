@@ -314,14 +314,15 @@ export default function AiQuiz() {
   const [email, setEmail] = useState('');
   const [bizName, setBizName] = useState('');
   const [emailError, setEmailError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const q = QUESTIONS[current];
   const progress = Math.round((current / QUESTIONS.length) * 100);
   const currentAnswer = answers[q?.id];
 
   const selectAnswer = useCallback((val: string | number) => {
-    setAnswers(prev => ({ ...prev, [QUESTIONS[current].id]: val }));
-  }, [current]);
+    setAnswers(prev => ({ ...prev, [q.id]: val }));
+  }, [q?.id]);
 
   const goNext = () => {
     if (!currentAnswer && currentAnswer !== 0) return;
@@ -334,17 +335,33 @@ export default function AiQuiz() {
 
   const goBack = () => setCurrent(c => c - 1);
 
-  const submitEmail = () => {
+  const submitEmail = async () => {
     if (!email || !email.includes('@')) {
       setEmailError(true);
       return;
     }
     setEmailError(false);
+    setSubmitting(true);
 
-    // ── Capture lead data — swap this fetch for your CRM/webhook ──
-    const leadData = { firstName, lastName, email, bizName, answers, timestamp: new Date().toISOString() };
-    console.log('LEAD CAPTURED:', leadData);
-    // fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(leadData) });
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          bizName,
+          answers,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch {
+      // Silently continue — don't block the user from seeing results
+      // if there's a network hiccup. The API route also has its own fallback.
+    } finally {
+      setSubmitting(false);
+    }
 
     setStage('results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -489,7 +506,9 @@ export default function AiQuiz() {
               </div>
 
               <div className="aq-btn-row" style={{ marginTop: '20px' }}>
-                <button className="aq-btn-primary" onClick={submitEmail}>Show my AI prompt →</button>
+                <button className="aq-btn-primary" onClick={submitEmail} disabled={submitting}>
+                  {submitting ? 'Sending…' : 'Show my AI prompt →'}
+                </button>
               </div>
               <p className="aq-form-fine">We respect your privacy. No spam — ever. Your information helps us personalize your results and follow up with resources relevant to your business.</p>
             </div>
@@ -573,8 +592,8 @@ export default function AiQuiz() {
               <OtherPromptsAccordion currentDrain={drain1} />
 
               <div className="aq-next-card">
-                <h3 className="aq-next-card-h3">Congratulations! You are now using AI for business.</h3>
-                <p className="aq-next-card-p">These are just a few basic examples of what AI is doing for your competitors. We work with small businesses like yours to find the highest-value AI opportunities in their workflow — no jargon, no expensive software — to help you stay competitive. Contact us today if you would like to learn more.</p>
+                <h3 className="aq-next-card-h3">Want more help like this?</h3>
+                <p className="aq-next-card-p">We work with small businesses to find the highest-value AI opportunities in their workflow — no jargon, no expensive software. We'll be in touch with more ideas tailored to your situation.</p>
               </div>
             </div>
           )}
@@ -709,7 +728,7 @@ const CSS = `
   .other-prompts-icon { width: 28px; height: 28px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .other-prompts-title { font-size: 15px; font-weight: 500; color: var(--ink); }
   .other-prompts-sub { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
-  .op-chevron { width: 20px; height: 20px; transition: transform 0.25s ease; flex-shrink: 0; }
+  .op-chevron { transition: transform 0.25s ease; flex-shrink: 0; }
   .other-prompts-toggle.open .op-chevron { transform: rotate(180deg); }
   .other-prompts-body { background: white; border: 1.5px solid var(--accent); border-top: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; overflow: hidden; }
   .op-item { border-bottom: 1px solid var(--border); }
