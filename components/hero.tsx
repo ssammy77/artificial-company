@@ -31,12 +31,12 @@ export function Hero() {
             You just know your <span className="text-yellow-300">competitors</span> are using it.
           </span>
           <span className="text-3xl md:text-4xl lg:text-5xl whitespace-nowrap">
-            We'll help you catch up.
+            We can help you catch up.
           </span>
         </h1>
         <div className="bg-black/40 backdrop-blur-sm rounded-xl px-6 py-5 max-w-[640px] mx-auto mb-20 mt-12">
           <p className="text-lg md:text-xl text-white/90 leading-relaxed text-pretty">
-            {"You're drowning in AI sales pitches and demos and have no idea which ones solve your specific problems. We look at your calendar, your inbox, and your workflows — and say: \"This tool. This process. This is where you start.\""}
+            {"You're drowning in AI sales pitches, demos, and chat boxes and have no idea which ones solve your specific problems. We look at your time sinks, your bloated workflows, and your non-billable tasks — and say: \"This tool. This process. This is where you start.\""}
           </p>
         </div>
         <div className="flex gap-4 justify-center flex-wrap">

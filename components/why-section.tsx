@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react"
+
 export function WhySection() {
   const comparisons = [
     {
@@ -36,7 +38,7 @@ export function WhySection() {
             <em className="not-italic text-blue-300">clarity.</em>
           </h2>
           <p className="text-lg text-slate-400 max-w-[640px] mb-6 leading-relaxed">
-            {"Most small business owners aren't losing to bad products or poor service — they're losing to the clock. Every hour spent vetting unqualified leads, chasing unanswered follow-ups, or hand-building estimates is an hour not spent on the work that actually grows the business. AI doesn't replace what you're good at. It handles the parts that slow you down — faster, more consistently, and around the clock."}
+            {"Most small business owners aren't losing to bad products or poor service — they're losing to the "}<span className="text-yellow-300">clock</span>{". Every hour spent on unqualified leads, repetitive follow-ups, or tasks that look the same every single time is an hour you're not billing, not growing, and not doing the work only you can do. AI doesn't replace what you're good at. It handles the mundane so you don't have to."}
           </p>
           <p className="text-lg text-slate-400 max-w-[640px] leading-relaxed">
             {"That's exactly what we help you find. No jargon, no six-figure software overhaul, no guessing. We spend time learning how your business actually operates — then hand you a clear, specific plan showing where AI fits, what tools to use, and where to start."}
@@ -46,7 +48,7 @@ export function WhySection() {
           {comparisons.map((item, index) => (
             <div
               key={index}
-              className={`rounded-xl px-6 py-5 border ${
+              className={`rounded-xl px-6 py-5 border transition-transform duration-300 ease-out hover:scale-110 will-change-transform ${
                 item.highlight
                   ? "bg-primary border-primary"
                   : "bg-white/5 border-white/10"

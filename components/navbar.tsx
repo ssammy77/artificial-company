@@ -28,6 +28,11 @@ export function Navbar() {
           </Link>
         </li>
         <li>
+          <Link href="/ai-assessment-quiz" className="text-muted-foreground hover:text-foreground transition-colors">
+            Quiz
+          </Link>
+        </li>
+        <li>
           <Link
             href="#contact"
             className="bg-primary text-primary-foreground px-5 py-2 rounded-md font-semibold hover:bg-primary/90 transition-colors"

@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero"
 import { TrustBar } from "@/components/trust-bar"
 import { WhySection } from "@/components/why-section"
 import { WhatYouGet } from "@/components/what-you-get"
-import { Industries } from "@/components/industries"
 import { Pricing } from "@/components/pricing"
 import { Process } from "@/components/process"
 import { CTABanner } from "@/components/cta-banner"
@@ -18,7 +17,6 @@ export default function Home() {
       <TrustBar />
       <WhySection />
       <WhatYouGet />
-      <Industries />
       <Pricing />
       <Process />
       <CTABanner />

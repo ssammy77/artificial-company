@@ -19,19 +19,18 @@ export function Pricing() {
       badge: null,
     },
     {
-      title: "Website Chatbot + Prompts",
-      tagline: "For owners ready to put AI to work",
+      title: "Website SEO Analysis",
+      tagline: "For owners curious if their website is pulling its weight",
       price: "$99",
       priceNote: "Human-reviewed · Delivered in 24 hrs",
       features: [
-        "1 custom website chatbot prompt",
-        "Ready to paste into CustomGPT.ai",
-        "2 additional custom prompts for daily tasks",
-        "Step-by-step setup instructions",
-        "Written by a human consultant",
+        "1 custom website report",
+        "Clear, jargon-free analysis of your SEO strengths and weaknesses",
+        "Human review to ensure accuracy and relevance",
         "Matched to your exact business",
+        "If you don't have a website, we'll analyze your Google Business Profile or social media presence instead",
       ],
-      cta: "Get My Chatbot Prompt →",
+      cta: "Get My SEO Report →",
       ctaStyle: "primary",
       badge: "Most Popular",
       featured: true,
@@ -43,50 +42,31 @@ export function Pricing() {
       priceNote: "Full engagement · Remote via video",
       features: [
         "45-min deep-dive discovery interview",
+        "We walk through our day, finding time sinks, bloated workflows, and non-billable tasks",
         "5–7 specific AI tool recommendations",
         "Custom written report with priority matrix",
-        "4-day quick-start plan",
-        "Financial impact breakdown",
-        "30-min report walkthrough call",
-        "Guarantee: 5+ hrs/week or full refund",
-      ],
+        "Where to start, what to do next, and how to avoid common pitfalls",
+        "Optional: Free 30-min report debrief call",
+        ],
       cta: "Book Your Assessment →",
       ctaStyle: "secondary",
       badge: "Full Assessment",
       badgeStyle: "gray",
-    },
-    {
-      title: "Implementation",
-      tagline: "For clients ready to build",
-      price: "$1K",
-      priceSub: "–$10K+",
-      priceNote: "Scoped per project · ~60% of clients continue here",
-      features: [
-        "Process redesign & workflow mapping",
-        "Zapier / Make.com automation builds",
-        "Custom AI knowledge systems",
-        "Prompt & template libraries",
-        "Full custom agent implementation",
-        "Priced by scope after assessment",
-      ],
-      cta: "Ask About Implementation",
-      ctaStyle: "secondary",
-      badge: null,
     },
   ]
 
   const workshop = {
     title: "Group Workshop",
     tagline: "For associations, chambers & peer groups",
-    price: "$750",
+    price: "$0-$750",
     priceSub: "+",
     priceNote: "60–90 min · Up to 30 attendees",
     features: [
       "Custom presentation for your industry",
       "Live Q&A for all attendees",
       "Take-home AI starter guide",
-      "Optional individual follow-up assessments",
       "Pricing scales with group size",
+      "Free local events in St. Louis, MO — inquire for details",
     ],
     cta: "Inquire About Groups",
     ctaStyle: "secondary",
@@ -101,8 +81,8 @@ export function Pricing() {
         <h2 className="text-3xl md:text-4xl leading-tight tracking-tight mb-5">
           Start free. Scale when ready.
         </h2>
-        <p className="text-base text-muted-foreground max-w-[640px] mb-12 leading-relaxed">
-          Take the free quiz and walk away with an AI prompt you can use today. Or go deeper — get a custom website chatbot and personalized prompts for $99, or let us map your entire operation for $999 with a money-back guarantee.
+        <p className="text-lg text-muted-foreground max-w-[640px] mb-12 leading-relaxed">
+          Take the free quiz and walk away with an AI prompt you can use today. Or go deeper — get a custom SEO website analysis and learn how your web presence is helping or hurting your business for $99. Our full AI Tools Assessment helps us map your entire operation, and reveals where AI can <strong>add the most value</strong> for $999.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
@@ -150,7 +130,7 @@ export function Pricing() {
                 ))}
               </ul>
               <Link
-                href="#contact"
+                href="/ai-assessment-quiz"
                 className={`block text-center py-3 px-6 rounded-lg font-sans text-sm font-semibold transition-colors ${
                   plan.ctaStyle === "primary"
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
@@ -161,10 +141,7 @@ export function Pricing() {
               </Link>
             </div>
           ))}
-        </div>
-
-        <div className="max-w-[400px] mx-auto">
-          <div className="bg-background border-[1.5px] border-border rounded-2xl px-8 py-9 flex flex-col">
+          <div className="bg-background border-[1.5px] rounded-2xl px-8 py-9 relative flex flex-col border-border">
             <h3 className="text-lg font-semibold mb-2">{workshop.title}</h3>
             <p className="font-sans text-sm text-muted-foreground mb-6">
               {workshop.tagline}

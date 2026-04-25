@@ -5,10 +5,10 @@ export function WhatYouGet() {
       tag: "Report Section 1",
       tagType: "general",
       items: [
-        "Your top 3 AI opportunities ranked by impact",
-        "The single best place to start",
         "A plain-language summary of what we found",
-        "Estimated weekly hours recovered",
+        "Your top 3 AI opportunities ranked by impact",
+        "The single best place to start",        
+        "--Estimated weekly hours recovered",
       ],
     },
     {
@@ -23,25 +23,25 @@ export function WhatYouGet() {
       ],
     },
     {
-      title: "4-Day Quick-Start Plan",
+      title: "SEO Assessment",
       tag: "Report Section 3",
       tagType: "general",
       items: [
-        "Day-by-day action plan to get your first tool live",
-        "Setup steps that don't require technical skills",
-        "What \"good\" looks like at the end of day 4",
-        "Common mistakes to avoid during setup",
+        "Is your current SEO strategy effective?",
+        "Non-jargon summary of the good and bad for your brand",
+        "Peace of mind that you are doing SEO right...",
+        "— or specific, actionable recommendations if you're not",
       ],
     },
     {
-      title: "Financial Impact Breakdown",
+      title: "Beyond the Assessment",
       tag: "Report Section 4",
       tagType: "specific",
       items: [
-        "Projected hours saved per week for each recommendation",
-        "Monthly tool costs for the full stack",
-        "ROI calculation: time value vs. tool investment",
-        "What the same outcome would cost to hire for",
+        "How to find a vendor or agency if you need help implementing",
+        "The questions to ask",
+        "An estimate of what implementation would cost",
+        "Finally, does AI make sense for your business?",
       ],
     },
   ]
@@ -57,14 +57,14 @@ export function WhatYouGet() {
         your business. Not a template.
       </h2>
       <p className="text-lg text-muted-foreground max-w-[640px] mb-12 leading-relaxed">
-        Every AI Tools Assessment ends with a custom written report — the kind a $10,000 consulting firm would produce. It covers your specific situation, your specific tools, and your specific starting point.
+        Every AI Tools Assessment ends with a custom written report tailored directly to your operation. It covers your specific situation, the exact tools that can help you, and the best bang for your buck to start on your AI journey.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {deliverables.map((item, index) => (
           <div
             key={index}
-            className="border border-border rounded-xl px-7 py-6 bg-background"
+            className="border border-border rounded-xl px-7 py-6 bg-background transition-transform duration-300 ease-out hover:scale-110 will-change-transform"
           >
             <h3 className="text-base font-semibold mb-1 flex items-center gap-2 flex-wrap">
               {item.title}
