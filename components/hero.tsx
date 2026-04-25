@@ -24,13 +24,13 @@ export function Hero() {
           Personal AI Assessment for Small Business
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight mb-6 text-white text-balance flex flex-col items-center space-y-2">
-          <span className="text-3xl md:text-4xl lg:text-5xl whitespace-nowrap">
+          <span className="text-3xl md:text-4xl lg:text-5xl">
             You don't know where to start with AI.
           </span>
-          <span className="text-4xl md:text-5xl lg:text-6xl whitespace-nowrap">
+          <span className="text-4xl md:text-5xl lg:text-6xl">
             You just know your <span className="text-yellow-300">competitors</span> are using it.
           </span>
-          <span className="text-3xl md:text-4xl lg:text-5xl whitespace-nowrap">
+          <span className="text-3xl md:text-4xl lg:text-5xl">
             We can help you catch up.
           </span>
         </h1>
