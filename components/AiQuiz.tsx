@@ -728,7 +728,7 @@ const CSS = `
   .other-prompts-icon { width: 28px; height: 28px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .other-prompts-title { font-size: 15px; font-weight: 500; color: var(--ink); }
   .other-prompts-sub { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
-  .op-chevron { transition: transform 0.25s ease; flex-shrink: 0; }
+  .op-chevron { width: 28px; height: 28px; transition: transform 0.25s ease; flex-shrink: 0; }
   .other-prompts-toggle.open .op-chevron { transform: rotate(180deg); }
   .other-prompts-body { background: white; border: 1.5px solid var(--accent); border-top: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; overflow: hidden; }
   .op-item { border-bottom: 1px solid var(--border); }
