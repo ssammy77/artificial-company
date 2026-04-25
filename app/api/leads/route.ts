@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+console.log('Sending lead notification to:', process.env.LEAD_NOTIFY_EMAIL);
 
 // The email address YOU want leads delivered to
 const NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL ?? 'you@yourcompany.com';
