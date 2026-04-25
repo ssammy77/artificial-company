@@ -609,13 +609,12 @@ export default function AiQuiz() {
 // All classes are prefixed with "aq-" to avoid conflicts with your site's styles.
 
 const CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
-
   .aq-shell {
-    --ink: #1a1a18; --ink-mid: #4a4a45; --ink-light: #9a9a92;
-    --paper: #f5f2eb; --accent: #c8471a; --accent-light: #f0ddd6;
-    --green: #2a6b4a; --border: rgba(26,26,24,0.12);
-    font-family: 'DM Sans', sans-serif;
+    --ink: #ffffff; --ink-mid: rgba(255,255,255,0.75); --ink-light: rgba(255,255,255,0.5);
+    --paper: #0f1117; --accent: #2563eb; --accent-light: #eff6ff; --accent-highlight: #fde047;
+    --green: #22c55e; --border: rgba(255,255,255,0.12);
+    --card-bg: rgba(255,255,255,0.05);
+    font-family: var(--font-sans, 'Geist', system-ui, sans-serif);
     background: var(--paper); color: var(--ink);
     min-height: 100vh; font-size: 16px; line-height: 1.6;
     max-width: 680px; margin: 0 auto; padding: 0 24px;
@@ -623,14 +622,14 @@ const CSS = `
   }
 
   .aq-site-header { padding: 32px 0 0; display: flex; align-items: center; gap: 10px; }
-  .aq-logo-mark { width: 32px; height: 32px; background: var(--ink); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .aq-logo-mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .aq-logo-mark svg { width: 18px; height: 18px; }
   .aq-logo-text { font-size: 13px; font-weight: 500; letter-spacing: 0.03em; color: var(--ink-mid); }
 
   .aq-hero { padding: 56px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
-  .aq-hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-  .aq-hero-h1 { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 6vw, 48px); line-height: 1.12; color: var(--ink); margin-bottom: 18px; }
-  .aq-hero-h1 em { font-style: italic; color: var(--accent); }
+  .aq-hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 6px 12px; border-radius: 99px; display: inline-block; margin-bottom: 16px; }
+  .aq-hero-h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 600; line-height: 1.12; color: var(--ink); margin-bottom: 18px; letter-spacing: -0.02em; }
+  .aq-hero-h1 em { font-style: normal; color: var(--accent-highlight); }
   .aq-hero-sub { font-size: 16px; color: var(--ink-mid); max-width: 480px; line-height: 1.65; }
   .aq-hero-meta { margin-top: 24px; display: flex; gap: 24px; flex-wrap: wrap; }
   .aq-meta-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink-mid); }
@@ -639,109 +638,112 @@ const CSS = `
   .aq-progress-wrap { margin-bottom: 36px; }
   .aq-progress-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
   .aq-progress-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); }
-  .aq-progress-fraction { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); }
-  .aq-progress-track { height: 2px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .aq-progress-fraction { font-size: 22px; font-weight: 600; color: var(--ink); }
+  .aq-progress-track { height: 3px; background: var(--border); border-radius: 99px; overflow: hidden; }
   .aq-progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
 
   @keyframes aqFadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   .aq-question-wrap { animation: aqFadeUp 0.35s ease both; }
-  .aq-question-num { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-  .aq-question-text { font-family: 'Instrument Serif', serif; font-size: clamp(20px,4vw,26px); line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
+  .aq-question-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .aq-question-text { font-size: clamp(20px,4vw,26px); font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
   .aq-question-hint { font-size: 13px; color: var(--ink-light); margin-bottom: 28px; }
 
   .aq-options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-  .aq-option { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: white; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; text-align: left; width: 100%; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s, background 0.15s, transform 0.1s; }
-  .aq-option:hover { border-color: rgba(200,71,26,0.3); background: #fdfaf7; transform: translateX(2px); }
-  .aq-option.selected { border-color: var(--accent); background: var(--accent-light); }
-  .aq-option-letter { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--ink-light); flex-shrink: 0; margin-top: 1px; transition: border-color 0.15s, background 0.15s, color 0.15s; }
+  .aq-option { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; text-align: left; width: 100%; transition: border-color 0.15s, background 0.15s, transform 0.1s; }
+  .aq-option:hover { border-color: rgba(37,99,235,0.5); background: rgba(37,99,235,0.08); transform: translateX(2px); }
+  .aq-option.selected { border-color: var(--accent); background: rgba(37,99,235,0.15); }
+  .aq-option-letter { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--ink-light); flex-shrink: 0; margin-top: 1px; transition: border-color 0.15s, background 0.15s, color 0.15s; }
   .aq-option.selected .aq-option-letter { border-color: var(--accent); background: var(--accent); color: white; }
-  .aq-option-main { font-size: 15px; color: var(--ink); line-height: 1.4; display: block; }
+  .aq-option-main { font-size: 15px; color: var(--ink); line-height: 1.4; display: block; font-weight: 500; }
   .aq-option-sub { font-size: 12px; color: var(--ink-light); margin-top: 3px; display: block; }
 
   .aq-scale-wrap { margin-bottom: 32px; }
   .aq-scale-poles { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 12px; color: var(--ink-light); }
   .aq-scale-btns { display: flex; gap: 8px; }
-  .aq-scale-btn { flex: 1; aspect-ratio: 1; max-width: 80px; border: 1.5px solid var(--border); border-radius: 10px; background: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: border-color 0.15s, background 0.15s; font-family: 'DM Sans', sans-serif; }
-  .aq-scale-btn:hover { border-color: rgba(200,71,26,0.35); }
-  .aq-scale-btn.selected { border-color: var(--accent); background: var(--accent-light); }
-  .aq-scale-num { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); line-height: 1; }
+  .aq-scale-btn { flex: 1; aspect-ratio: 1; max-width: 80px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--card-bg); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; transition: border-color 0.15s, background 0.15s; }
+  .aq-scale-btn:hover { border-color: rgba(37,99,235,0.5); background: rgba(37,99,235,0.08); }
+  .aq-scale-btn.selected { border-color: var(--accent); background: rgba(37,99,235,0.15); }
+  .aq-scale-num { font-size: 22px; font-weight: 600; color: var(--ink); line-height: 1; }
   .aq-scale-btn.selected .aq-scale-num { color: var(--accent); }
   .aq-scale-label { font-size: 10px; color: var(--ink-light); font-weight: 500; }
 
   .aq-btn-row { display: flex; gap: 12px; align-items: center; margin-bottom: 48px; }
-  .aq-btn-primary { padding: 13px 28px; background: var(--ink); color: var(--paper); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.01em; }
+  .aq-btn-primary { padding: 13px 28px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.01em; }
   .aq-btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
-  .aq-btn-primary:not(:disabled):hover { opacity: 0.82; }
+  .aq-btn-primary:not(:disabled):hover { opacity: 0.9; }
   .aq-btn-primary:not(:disabled):active { transform: scale(0.98); }
-  .aq-btn-back { padding: 13px 20px; background: transparent; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink-mid); cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+  .aq-btn-back { padding: 13px 20px; background: transparent; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; color: var(--ink-mid); cursor: pointer; transition: border-color 0.15s, color 0.15s; }
   .aq-btn-back:hover { border-color: var(--ink-mid); color: var(--ink); }
 
   .aq-email-gate { animation: aqFadeUp 0.35s ease both; }
-  .aq-email-h2 { font-family: 'Instrument Serif', serif; font-size: clamp(22px,4vw,30px); margin-bottom: 10px; line-height: 1.25; }
+  .aq-email-h2 { font-size: clamp(22px,4vw,30px); font-weight: 600; margin-bottom: 10px; line-height: 1.25; letter-spacing: -0.01em; }
   .aq-email-p { font-size: 14px; color: var(--ink-mid); margin-bottom: 28px; line-height: 1.65; }
   .aq-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .aq-form-group { margin-bottom: 16px; }
   .aq-form-label { display: block; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 7px; }
-  .aq-form-input { width: 100%; padding: 13px 16px; background: white; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--ink); outline: none; transition: border-color 0.15s; }
+  .aq-form-input { width: 100%; padding: 13px 16px; background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 8px; font-size: 15px; color: var(--ink); outline: none; transition: border-color 0.15s; }
   .aq-form-input:focus { border-color: var(--accent); }
   .aq-form-input::placeholder { color: var(--ink-light); }
-  .aq-form-input.error { border-color: var(--accent); }
-  .aq-field-error { font-size: 12px; color: var(--accent); margin-top: 4px; display: block; }
+  .aq-form-input.error { border-color: #ef4444; }
+  .aq-field-error { font-size: 12px; color: #ef4444; margin-top: 4px; display: block; }
   .aq-form-fine { font-size: 12px; color: var(--ink-light); margin-top: 14px; line-height: 1.6; }
 
   .aq-results-wrap { animation: aqFadeUp 0.4s ease both; padding-bottom: 80px; }
   .aq-results-header { padding: 32px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 36px; }
-  .aq-results-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .aq-results-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .aq-check-circle { width: 18px; height: 18px; background: var(--green); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .aq-check-circle svg { width: 10px; height: 10px; }
-  .aq-results-h2 { font-family: 'Instrument Serif', serif; font-size: clamp(24px,5vw,36px); line-height: 1.2; margin-bottom: 10px; }
+  .aq-results-h2 { font-size: clamp(24px,5vw,36px); font-weight: 600; line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.02em; }
   .aq-results-p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
 
-  .aq-profile-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--accent-light); border: 1px solid rgba(200,71,26,0.2); border-radius: 8px; margin-bottom: 32px; font-size: 13px; color: var(--accent); font-weight: 500; }
-  .aq-section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 14px; display: block; }
+  .aq-profile-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3); border-radius: 8px; margin-bottom: 32px; font-size: 13px; color: var(--accent); font-weight: 500; }
+  .aq-profile-badge svg circle { stroke: var(--accent); }
+  .aq-profile-badge svg path { stroke: var(--accent); }
+  .aq-section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 14px; display: block; }
   .aq-pain-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
-  .aq-pain-tag { padding: 6px 14px; background: white; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; color: var(--ink-mid); }
+  .aq-pain-tag { padding: 6px 14px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 99px; font-size: 13px; color: var(--ink-mid); }
 
-  .aq-prompt-card { background: var(--ink); border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
-  .aq-prompt-card-header { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; }
-  .aq-prompt-card-title { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-  .copy-btn { padding: 5px 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.7); cursor: pointer; transition: background 0.15s, color 0.15s; }
-  .copy-btn:hover { background: rgba(255,255,255,0.18); color: white; }
-  .prompt-text { padding: 20px; font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.85); white-space: pre-wrap; font-family: 'Courier New', monospace; }
+  .aq-prompt-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+  .aq-prompt-card-header { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); }
+  .aq-prompt-card-title { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); }
+  .copy-btn { padding: 5px 14px; background: var(--accent); border: none; border-radius: 6px; font-size: 12px; font-weight: 600; color: white; cursor: pointer; transition: opacity 0.15s; }
+  .copy-btn:hover { opacity: 0.9; }
+  .prompt-text { padding: 20px; font-size: 14px; line-height: 1.8; color: var(--ink-mid); white-space: pre-wrap; font-family: 'Geist Mono', 'Courier New', monospace; }
 
-  .aq-steps-title { font-family: 'Instrument Serif', serif; font-size: 20px; margin-bottom: 20px; }
+  .aq-steps-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.01em; }
   .aq-steps-list { display: flex; flex-direction: column; }
   .aq-step-item { display: flex; gap: 16px; padding-bottom: 24px; position: relative; }
   .aq-step-item.has-line::before { content: ''; position: absolute; left: 15px; top: 32px; bottom: 0; width: 1px; background: var(--border); }
-  .aq-step-num { width: 32px; height: 32px; border-radius: 50%; background: white; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 15px; color: var(--ink); flex-shrink: 0; }
-  .aq-step-heading { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; margin-top: 5px; }
+  .aq-step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--card-bg); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: var(--ink); flex-shrink: 0; }
+  .aq-step-heading { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; margin-top: 5px; }
   .aq-step-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.6; }
   .aq-ai-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  .aq-ai-link { padding: 6px 14px; background: white; border: 1.5px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--ink); text-decoration: none; transition: border-color 0.15s; font-weight: 500; }
-  .aq-ai-link:hover { border-color: var(--ink-mid); }
+  .aq-ai-link { padding: 6px 14px; background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--ink); text-decoration: none; transition: border-color 0.15s, background 0.15s; font-weight: 500; }
+  .aq-ai-link:hover { border-color: var(--accent); background: rgba(37,99,235,0.1); }
 
   .other-prompts-section { margin-top: 36px; }
-  .other-prompts-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; background: white; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s, background 0.15s; text-align: left; }
-  .other-prompts-toggle:hover { border-color: rgba(200,71,26,0.35); background: #fdfaf7; }
+  .other-prompts-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; transition: border-color 0.15s, background 0.15s; text-align: left; }
+  .other-prompts-toggle:hover { border-color: rgba(37,99,235,0.5); background: rgba(37,99,235,0.08); }
   .other-prompts-toggle.open { border-color: var(--accent); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
   .other-prompts-toggle-left { display: flex; align-items: center; gap: 12px; }
-  .other-prompts-icon { width: 28px; height: 28px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .other-prompts-title { font-size: 15px; font-weight: 500; color: var(--ink); }
+  .other-prompts-icon { width: 28px; height: 28px; background: rgba(37,99,235,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .other-prompts-icon svg rect { fill: var(--accent); }
+  .other-prompts-title { font-size: 15px; font-weight: 600; color: var(--ink); }
   .other-prompts-sub { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
-  .op-chevron { width: 28px; height: 28px; transition: transform 0.25s ease; flex-shrink: 0; }
+  .op-chevron { width: 28px; height: 28px; transition: transform 0.25s ease; flex-shrink: 0; color: var(--ink-mid); }
   .other-prompts-toggle.open .op-chevron { transform: rotate(180deg); }
-  .other-prompts-body { background: white; border: 1.5px solid var(--accent); border-top: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; overflow: hidden; }
+  .other-prompts-body { background: var(--card-bg); border: 1.5px solid var(--accent); border-top: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; overflow: hidden; }
   .op-item { border-bottom: 1px solid var(--border); }
   .op-item:last-child { border-bottom: none; }
-  .op-header { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; text-align: left; transition: background 0.12s; }
-  .op-header:hover, .op-header.open { background: var(--paper); }
+  .op-header { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: none; border: none; cursor: pointer; text-align: left; transition: background 0.12s; color: var(--ink); }
+  .op-header:hover, .op-header.open { background: rgba(255,255,255,0.03); }
   .op-name { font-size: 14px; font-weight: 500; color: var(--ink); }
   .op-content { padding: 0 20px 16px; }
-  .op-card { background: var(--ink); border-radius: 8px; overflow: hidden; }
-  .op-card-header { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: flex-end; }
+  .op-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .op-card-header { padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: flex-end; }
 
-  .aq-next-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 32px; }
-  .aq-next-card-h3 { font-family: 'Instrument Serif', serif; font-size: 20px; margin-bottom: 8px; }
+  .aq-next-card { background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2); border-radius: 12px; padding: 24px; margin-top: 32px; }
+  .aq-next-card-h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
   .aq-next-card-p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
 
   .aq-footer { margin-top: auto; padding: 32px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--ink-light); }
