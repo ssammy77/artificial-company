@@ -23,14 +23,14 @@ export function Hero() {
         <div className="inline-block font-sans text-xs font-bold tracking-widest uppercase text-primary bg-accent px-4 py-1.5 rounded-full mb-7">
           Personal AI Assessment for Small Business
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight mb-6 text-white text-balance flex flex-col items-center space-y-2">
-          <span className="text-3xl md:text-4xl lg:text-5xl">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight mb-6 text-white flex flex-col items-center space-y-2">
+          <span className="text-3xl md:text-4xl lg:text-5xl md:whitespace-nowrap">
             You don't know where to start with AI.
           </span>
-          <span className="text-4xl md:text-5xl lg:text-6xl">
+          <span className="text-4xl md:text-5xl lg:text-6xl md:whitespace-nowrap">
             You just know your <span className="text-yellow-300">competitors</span> are using it.
           </span>
-          <span className="text-3xl md:text-4xl lg:text-5xl">
+          <span className="text-3xl md:text-4xl lg:text-5xl md:whitespace-nowrap">
             We can help you catch up.
           </span>
         </h1>
