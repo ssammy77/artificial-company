@@ -1,4 +1,5 @@
 import Link from "next/link"
+import ContactForm from "@/components/ContactForm"
 
 export function Process() {
   const steps = [
@@ -71,6 +72,11 @@ export function Process() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Contact form — anchored so the "Complete Pre-Session Form" CTA scrolls here */}
+      <div id="contact" className="mt-10 scroll-mt-24">
+        <ContactForm />
       </div>
     </section>
   )
