@@ -611,7 +611,7 @@ export default function AiQuiz() {
 const CSS = `
   .aq-shell {
     --ink: #ffffff; --ink-mid: rgba(255,255,255,0.75); --ink-light: rgba(255,255,255,0.5);
-    --paper: #222222; --accent: #2563eb; --accent-light: #eff6ff; --accent-highlight: #fde047;
+    --paper: #000000; --accent: #2563eb; --accent-light: #eff6ff; --accent-highlight: #fde047;
     --green: #22c55e; --border: rgba(255,255,255,0.12);
     --card-bg: rgba(255,255,255,0.05);
     font-family: var(--font-sans, 'Geist', system-ui, sans-serif);
