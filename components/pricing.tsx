@@ -42,7 +42,7 @@ export function Pricing() {
       priceNote: "Full engagement · Remote via video",
       features: [
         "45-min deep-dive discovery interview",
-        "We walk through our day, finding time sinks, bloated workflows, and non-billable tasks",
+        "We walk through your day and find time sinks, bloated workflows, and non-billable tasks",
         "5–7 specific AI tool recommendations",
         "Custom written report with priority matrix",
         "Where to start, what to do next, and how to avoid common pitfalls",
