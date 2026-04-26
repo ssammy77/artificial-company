@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import { useState } from "react"
 
@@ -6,8 +8,22 @@ export function Navbar() {
 
   return (
     <nav className="flex justify-between items-center px-[5%] py-5 border-b border-border sticky top-0 bg-background/95 backdrop-blur-sm z-50">
-      <div className="font-serif text-xl font-bold tracking-tight text-foreground">
-        ArtificialCompany<span className="text-primary">.AI</span>
+      <div className="flex items-center gap-4">
+        {/* Mobile Hamburger Button */}
+        <button
+          className="md:hidden flex flex-col gap-1 p-2"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`w-6 h-0.5 bg-foreground transition-transform ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-foreground transition-opacity ${isOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-foreground transition-transform ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+        </button>
+
+        {/* Company Name */}
+        <div className="font-serif text-xl font-bold tracking-tight text-foreground">
+          ArtificialCompany<span className="text-primary">.AI</span>
+        </div>
       </div>
 
       {/* Desktop Menu */}
@@ -46,17 +62,6 @@ export function Navbar() {
           </Link>
         </li>
       </ul>
-
-      {/* Mobile Hamburger Button */}
-      <button
-        className="md:hidden flex flex-col gap-1 p-2"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle menu"
-      >
-        <span className={`w-6 h-0.5 bg-foreground transition-transform ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-        <span className={`w-6 h-0.5 bg-foreground transition-opacity ${isOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`w-6 h-0.5 bg-foreground transition-transform ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-      </button>
 
       {/* Mobile Menu */}
       {isOpen && (
