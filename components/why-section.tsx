@@ -19,7 +19,7 @@ export function WhySection() {
       highlight: false,
     },
     {
-      who: "ArtificialCompany.AI ✦",
+      who: "yourAIguide.CO ✦",
       text: "We look at your calendar, your inbox, and your workflows — and tell you exactly which tools to use and where to start. Specific. Actionable. Guaranteed.",
       highlight: true,
     },
@@ -42,7 +42,7 @@ export function WhySection() {
             {"Most small business owners aren't losing to bad products or poor service — they're losing to the "}<span className="text-yellow-300">clock</span>{". Every hour spent on unqualified leads, repetitive follow-ups, or tasks that look the same every single time is an hour you're not billing, not growing, and not doing the work only you can do. AI doesn't replace what you're good at. It handles the mundane so you don't have to."}
           </p>
           <p className="text-lg text-slate-400 max-w-[640px] leading-relaxed">
-            {"That's exactly what we help you find. No jargon, no six-figure software overhaul, no guessing. We spend time learning how your business actually operates — then hand you a clear, specific plan showing where AI fits, what tools to use, and where to start."}
+            {"That's exactly what we help you find. No jargon, no six-figure software overhaul, no guessing. We spend time learning how your business actually operates — then "}<span className="text-yellow-300">guide you</span>{" with a clear, specific plan showing where AI fits (and where it doesn't), what tools to use, and where to start."}
           </p>
         </div>
         <div className="flex flex-col gap-4">
@@ -66,6 +66,13 @@ export function WhySection() {
             </div>
           ))}
         </div>
+      </div>
+
+      
+      <div className="mt-12 text-center">
+        <p className="mx-auto inline-block text-lg italic text-white max-w-[720px]">
+          “The smartest AI agent still lacks the wisdom of your average toddler. Its success depends entirely on the people using it.”
+        </p>
       </div>
     </section>
   )

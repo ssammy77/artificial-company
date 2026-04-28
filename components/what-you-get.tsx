@@ -2,7 +2,7 @@ export function WhatYouGet() {
   const deliverables = [
     {
       title: "Executive Summary",
-      tag: "Report Section 1",
+      tag: "Guide Section 1",
       tagType: "general",
       items: [
         "A plain-language summary of what we found",
@@ -13,7 +13,7 @@ export function WhatYouGet() {
     },
     {
       title: "Priority Matrix",
-      tag: "Report Section 2",
+      tag: "Guide Section 2",
       tagType: "specific",
       items: [
         "5–7 opportunities mapped by impact vs. effort",
@@ -24,7 +24,7 @@ export function WhatYouGet() {
     },
     {
       title: "SEO Assessment",
-      tag: "Report Section 3",
+      tag: "Guide Section 3",
       tagType: "general",
       items: [
         "Is your current SEO strategy effective?",
@@ -35,7 +35,7 @@ export function WhatYouGet() {
     },
     {
       title: "Beyond the Assessment",
-      tag: "Report Section 4",
+      tag: "Guide Section 4",
       tagType: "specific",
       items: [
         "How to find a vendor or agency if you need help implementing",
@@ -49,15 +49,15 @@ export function WhatYouGet() {
   return (
     <section id="what" className="max-w-[1100px] mx-auto px-[5%] py-20">
       <div className="font-sans text-xs font-bold tracking-widest uppercase text-primary mb-3">
-        What You Get
+        BASIC GUIDE
       </div>
       <h2 className="text-3xl md:text-4xl leading-tight tracking-tight mb-5">
-        A report built around
+        We talk with you to understand
         <br />
-        your business. Not a template.
+        your business. 
       </h2>
       <p className="text-lg text-muted-foreground max-w-[640px] mb-12 leading-relaxed">
-        Every AI Tools Assessment ends with a custom written report tailored directly to your operation. It covers your specific situation, the exact tools that can help you, and the best bang for your buck to start on your AI journey.
+        AI won't solve all your problems, but we can guide you to those where it can. Our basic guide starts with a phone call to help us understand the core problems of your business, then we deliver a simple report showing the best bang for your buck.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -85,6 +85,12 @@ export function WhatYouGet() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 text-center">
+        <p className="mx-auto inline-block text-lg italic text-muted-foreground max-w-[720px]">
+          “AI does the boring, so humans can do the meaningful.”
+        </p>
       </div>
     </section>
   )

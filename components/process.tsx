@@ -34,50 +34,59 @@ export function Process() {
   ]
 
   return (
-    <section id="process" className="max-w-[1100px] mx-auto px-[5%] py-20">
-      <div className="font-sans text-xs font-bold tracking-widest uppercase text-primary mb-3">
-        How It Works
-      </div>
-      <h2 className="text-3xl md:text-4xl leading-tight tracking-tight mb-10">
-        Four steps. One week.
-        <br />
-        Hours back every week after that.
-      </h2>
+    <>
+      <section id="process" className="max-w-[1100px] mx-auto px-[5%] py-20">
+        <div className="font-sans text-xs font-bold tracking-widest uppercase text-primary mb-3">
+          How It Works
+        </div>
+        <h2 className="text-3xl md:text-4xl leading-tight tracking-tight mb-10">
+          Four steps. One week.
+          <br />
+          Hours back every week after that.
+        </h2>
 
-      <div className="flex flex-col relative">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className="grid grid-cols-[56px_1fr] gap-6 pb-10 relative"
-          >
-            <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground font-sans text-lg font-bold flex items-center justify-center flex-shrink-0 relative z-10">
-              {step.number}
-            </div>
-            {index < steps.length - 1 && (
-              <div className="absolute left-[27px] top-14 bottom-0 w-0.5 bg-border" />
-            )}
-            <div className="pt-3">
-              <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
-              {step.cta && (
-                <Link
-                  href={step.cta.href}
-                  className="inline-block mt-3 font-sans text-sm font-semibold text-primary border-[1.5px] border-primary rounded-lg px-4 py-2 hover:bg-accent transition-colors"
-                >
-                  {step.cta.text}
-                </Link>
+        <div className="flex flex-col relative">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-[56px_1fr] gap-6 pb-10 relative"
+            >
+              <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground font-sans text-lg font-bold flex items-center justify-center flex-shrink-0 relative z-10">
+                {step.number}
+              </div>
+              {index < steps.length - 1 && (
+                <div className="absolute left-[27px] top-14 bottom-0 w-0.5 bg-border" />
               )}
+              <div className="pt-3">
+                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                <p className="text-[15px] text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+                {step.cta && (
+                  <Link
+                    href={step.cta.href}
+                    className="inline-block mt-3 font-sans text-sm font-semibold text-primary border-[1.5px] border-primary rounded-lg px-4 py-2 hover:bg-accent transition-colors"
+                  >
+                    {step.cta.text}
+                  </Link>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </section>
+
+      {/* Trust bar — full width */}
+      <div className="w-full bg-black px-[5%] py-7 text-center">
+        <p className="font-sans text-sm text-white tracking-wider uppercase font-semibold">
+          Serving small business owners in retail · healthcare · real estate · hospitality · professional services · and more
+        </p>
       </div>
 
-      {/* Contact form — anchored so the "Complete Pre-Session Form" CTA scrolls here */}
-      <div id="contact" className="mt-10 scroll-mt-24">
+      {/* Contact form section */}
+      <section id="contact" className="max-w-[1100px] mx-auto px-[5%] py-20 scroll-mt-24">
         <ContactForm />
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

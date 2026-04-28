@@ -22,7 +22,7 @@ export function Navbar() {
 
         {/* Company Name */}
         <div className="font-serif text-xl font-bold tracking-tight text-foreground">
-          ArtificialCompany<span className="text-primary">.AI</span>
+          yourAIguide<span className="text-primary">.CO</span>
         </div>
       </div>
 
