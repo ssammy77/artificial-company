@@ -26,7 +26,8 @@ export function WhatYouGetDark() {
   ]
 
   return (
-    <section id="what-dark" className="bg-slate-950 text-slate-100 max-w-[1100px] mx-auto px-[5%] py-20 rounded-3xl">
+    <section id="what-dark" className="bg-slate-950 text-slate-100 w-full py-20">
+      <div className="max-w-[1100px] mx-auto px-[5%]">
       <div className="font-sans text-xs font-bold tracking-widest uppercase text-cyan-300 mb-3">
         ADVANCED GUIDE
       </div>
@@ -36,7 +37,7 @@ export function WhatYouGetDark() {
         to AI integration.
       </h2>
       <p className="text-lg text-slate-300 max-w-[640px] mb-12 leading-relaxed">
-        Our team will sit on {<span className="text-yellow-300">your side of the table</span>} as you meet with prospective vendors, talk about your needs, and review proposals. Small business owners don't have the budget for full AI departments, but it never hurts to have a second set of expert eyes when large projects and large budgets are on the line.
+        Our team will sit on <span className="text-yellow-300">your side of the table</span> as you meet with prospective vendors, talk about your needs, and review proposals. Small business owners don't have the budget for full AI departments, but it never hurts to have a second set of expert eyes when large projects and large budgets are on the line.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -68,8 +69,9 @@ export function WhatYouGetDark() {
 
       <div className="mt-12 text-center">
         <p className="mx-auto inline-block text-lg italic text-slate-300 max-w-[720px]">
-          “Sometimes AI is the WRONG solution.”
+          "Sometimes AI is the WRONG solution."
         </p>
+      </div>
       </div>
     </section>
   )
