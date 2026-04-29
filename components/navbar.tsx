@@ -20,9 +20,12 @@ export function Navbar() {
           <span className={`w-6 h-0.5 bg-foreground transition-transform ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
         </button>
 
-        {/* Company Name */}
-        <div className="font-serif text-xl font-bold tracking-tight text-foreground">
-          yourAIguide<span className="text-primary">.CO</span>
+        {/* Logo + Brand */}
+        <div className="flex items-center gap-3">
+          <img src="/brand-dog.png" alt="yourAIguide logo" className="h-10 w-10 object-contain" />
+          <div className="font-serif text-xl font-bold tracking-tight text-foreground">
+            yourAIguide<span className="text-primary">.CO</span>
+          </div>
         </div>
       </div>
 
