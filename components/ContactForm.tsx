@@ -203,7 +203,7 @@ export default function ContactForm() {
                       <span className="cf-checkbox">
                         {checked && (
                           <svg viewBox="0 0 12 12" fill="none">
-                            <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         )}
                       </span>
@@ -373,12 +373,11 @@ const CSS = `
 
   .cf-checkbox {
     width: 20px; height: 20px; border-radius: 6px;
-    border: 1.5px solid rgba(0,0,0,0.15); flex-shrink: 0;
+    border: 1.5px solid rgba(0,0,0,0.25); flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     transition: border-color 0.15s, background 0.15s;
-    background: white;
   }
-  .cf-check-btn.checked .cf-checkbox { background: var(--accent, #c8471a); border-color: var(--accent, #c8471a); }
+  .cf-check-btn.checked .cf-checkbox { background: #1a1a18 !important; border-color: #1a1a18 !important; }
   .cf-checkbox svg { width: 12px; height: 12px; }
   .cf-check-label { font-size: 15px; color: var(--ink, #1a1a18); font-weight: 500; }
 
@@ -395,14 +394,14 @@ const CSS = `
 
   /* Submit button */
   .cf-submit-btn {
-    padding: 14px 32px; background: var(--accent, #c8471a); color: white;
+    padding: 14px 32px; background: #c8471a; color: white;
     border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif;
     font-size: 15px; font-weight: 600; cursor: pointer;
-    transition: opacity 0.15s, transform 0.1s; letter-spacing: 0.01em;
+    transition: background 0.15s, opacity 0.15s, transform 0.1s; letter-spacing: 0.01em;
     margin-top: 8px; width: 100%;
   }
-  .cf-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .cf-submit-btn:not(:disabled):hover { opacity: 0.9; }
+  .cf-submit-btn:disabled { background: #9a9a92; color: white; cursor: not-allowed; }
+  .cf-submit-btn:not(:disabled):hover { background: #a93d16; }
   .cf-submit-btn:not(:disabled):active { transform: scale(0.98); }
 
   .cf-fine { font-size: 13px; color: var(--ink-light, #9a9a92); margin-top: 16px; line-height: 1.6; }
