@@ -2,11 +2,8 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { TrustBar } from "@/components/trust-bar"
 import { WhySection } from "@/components/why-section"
-import { WhatYouGet } from "@/components/what-you-get"
-import { WhatYouGetDark } from "@/components/what-you-get-dark"
-import { Pricing } from "@/components/pricing"
-import { Process } from "@/components/process"
-import { CTABanner } from "@/components/cta-banner"
+import { Pricing } from "@/components/pricing-options"
+import ContactForm from "@/components/ContactForm"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -17,11 +14,12 @@ export default function Home() {
       <hr className="border-t border-border mx-[5%]" />
       <TrustBar />
       <WhySection />
-      <WhatYouGet />
-      <WhatYouGetDark />
       <Pricing />
-      <Process />
-      <CTABanner />
+      <section id="contact" className="bg-black px-[5%] py-20">
+        <div className="max-w-[1100px] mx-auto">
+          <ContactForm />
+        </div>
+      </section>
       <Footer />
     </main>
   )

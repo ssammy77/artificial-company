@@ -16,13 +16,13 @@ export function CTABanner() {
       </p>
       <div className="flex gap-4 justify-center flex-wrap">
         <Link
-          href="mailto:hello@artificialcompany.ai"
+          href="mailto:hello@yourAIguide.co"
           className="bg-white text-primary px-8 py-3.5 rounded-lg font-sans font-semibold hover:bg-white/90 transition-colors"
         >
           Book a Free Intro Call
         </Link>
         <Link
-          href="mailto:hello@artificialcompany.ai"
+          href="mailto:hello@yourAIguide.co"
           className="bg-transparent text-white px-8 py-3.5 rounded-lg font-sans font-semibold border-[1.5px] border-white/30 hover:border-white/50 transition-colors"
         >
           Send Us a Message

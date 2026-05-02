@@ -5,12 +5,13 @@ import Script from 'next/script';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type HelpOption = 'Get SEO report on my site' | 'Book an assessment call' | 'Book an in-person event' | 'Something else';
+type HelpOption = 'Set up a personal interview' | 'Set up the website & SEO health report' | 'Set up the social media & content strategy audit' | 'Set up an in-person event' | 'Something else';
 
 const HELP_OPTIONS: HelpOption[] = [
-  'Get SEO report on my site', 
-  'Book an assessment call',
-  'Book an in-person event',
+  'Set up a personal interview',
+  'Set up the website & SEO health report',
+  'Set up the social media & content strategy audit',
+  'Set up an in-person event',
   'Something else',
 ];
 
@@ -97,7 +98,6 @@ export default function ContactForm() {
       }
 
       setStage('success');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
       setErrors({ submit: 'Something went wrong. Please try again or email us directly.' });
     } finally {
@@ -124,8 +124,8 @@ export default function ContactForm() {
 
             <div className="cf-header">
               <div className="cf-eyebrow">Let's Talk</div>
-              <h2 className="cf-heading">Tell us what's<br />wasting your time.</h2>
-              <p className="cf-sub">Use this form to share your biggest challenges and we'll talk about your business.</p>
+              <h2 className="cf-heading">We're here when you're ready.</h2>
+              <p className="cf-sub">We look forward to learning more about your business and helping guide you on your AI journey.</p>
             </div>
 
             {/* Name row */}
@@ -280,13 +280,13 @@ export default function ContactForm() {
             <p className="cf-success-sub">
               Thanks, <strong>{firstName}</strong>. We've got your information and will reach out within one business day with personalized insights for your business.
             </p>
-            {helpWith.includes('Book an assessment call') && (
+            {helpWith.includes('Set up the website & SEO health report') && (
               <div className="cf-success-note">
                 <span className="cf-success-note-icon">📋</span>
                 <span>You're interested in an assessment call — we'll include available times in our response.</span>
               </div>
             )}
-            {helpWith.includes('Book an in-person event') && (
+            {helpWith.includes('Set up the social media & content strategy audit') && (
               <div className="cf-success-note">
                 <span className="cf-success-note-icon">🎯</span>
                 <span>You mentioned an in-person event — we'll follow up with dates and details.</span>
@@ -308,7 +308,7 @@ const CSS = `
 
   .cf-shell {
     font-family: 'DM Sans', sans-serif;
-    background: rgba(26,26,24,0.03); color: inherit;
+    background: white; color: inherit;
     font-size: 16px; line-height: 1.6;
     max-width: 600px; margin: 0 auto; padding: 64px 40px;
     border-radius: 16px;

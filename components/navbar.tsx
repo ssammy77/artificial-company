@@ -21,12 +21,12 @@ export function Navbar() {
         </button>
 
         {/* Logo + Brand */}
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <img src="/brand-dog.png" alt="yourAIguide logo" className="h-10 w-10 object-contain" />
           <div className="font-serif text-xl font-bold tracking-tight text-foreground">
             yourAIguide<span className="text-primary">.CO</span>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Desktop Menu */}

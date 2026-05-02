@@ -165,7 +165,7 @@ export default function ContainerPage() {
             Atlas <span className="text-[#E05A28]">Construction</span>
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="bg-[#C0441A] hover:bg-[#E05A28] text-white font-barlow-condensed text-[13px] font-bold tracking-widest uppercase px-5 py-2.5 no-underline transition-colors"
           >
             Get a Free Quote
@@ -197,7 +197,7 @@ export default function ContainerPage() {
             </p>
             <div className="flex gap-4 flex-wrap items-center">
               <a
-                href="#contact"
+                href="/#contact"
                 className="bg-[#C0441A] hover:bg-[#E05A28] text-white font-barlow-condensed text-base font-bold tracking-wider uppercase px-8 py-4 no-underline transition-colors inline-block"
               >
                 Get a Free Quote

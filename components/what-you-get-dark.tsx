@@ -6,7 +6,7 @@ export function WhatYouGetDark() {
       tagType: "general",
       items: [
         "We commit time per week to your project,",
-        "Avaiable for calls, vendor meetings, and brainstorming",
+        "Available for calls, vendor meetings, and brainstorming",
         "We help you understand the right questions to ask",
         "We can help with training and implementation",
       ],
